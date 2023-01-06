@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
  
+show = false;  
 //creating our form
 public formValidation!: FormGroup;
 
@@ -24,6 +25,8 @@ constructor(private formBuilder:FormBuilder){
       name:['', [Validators.required, Validators.minLength(12)]],
 
       email:['', [Validators.required, Validators.email]],
+
+      number: ['', [Validators.required, Validators.maxLength(9)]],
       
       message:['', [Validators.required, Validators.maxLength(500),]],})
 
@@ -33,5 +36,9 @@ constructor(private formBuilder:FormBuilder){
     alert("Formulario completado");
   }
 
+  color = 'red';
 
+  getMessage(event: any) {
+    console.log('evento al padre', event)
+  }
 }

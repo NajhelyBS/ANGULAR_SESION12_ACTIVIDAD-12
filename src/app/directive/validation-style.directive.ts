@@ -15,8 +15,14 @@ export class ValidationStyleDirective implements OnInit {
   @Input() color = 'red';
   @Output() sendMessage = new EventEmitter<any>()
 
+  
+  @HostListener('mouseenter') onMouseEnter(){
+    this.element.nativeElement.style.backgroundColor = this.color;
+
+  }
 
   ngOnInit(): void {
+    this.element.nativeElement.style.backgroundColor = this.color;
 
   }
 }

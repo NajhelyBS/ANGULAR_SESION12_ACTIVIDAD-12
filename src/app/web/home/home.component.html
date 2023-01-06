@@ -1,12 +1,14 @@
 <h1 class="text-primary text-center">Formulario de Contacto</h1>
-
+<div class="d-flex justify-content-center" >
+    <h4 *ngIf="show">Gracias por comunicarse con nosotros</h4>
+</div>
 <section>
 <form [formGroup]="formValidation" (submit)="send()">
 
 <input type="text" 
 placeholder="Nombre*" 
 class="form-control mt-1 mb-5"
-formControlName="name" id="name">
+formControlName="name" id="name" validation (sendMessage)="getMessage($event)">
 
 <input type="email" 
 placeholder="Email*" 
@@ -31,7 +33,7 @@ id="message" cols="20" rows="2"
 
 </form>
 <div class="d-flex justify-content-center ">
-<button class="btn btn-primary" (click)="send()" [disabled]="formValidation.invalid" >
+<button class="btn btn-primary" (click)="show = !show; send()" [disabled]="formValidation.invalid" >
     Enviar
 </button>
 </div>
