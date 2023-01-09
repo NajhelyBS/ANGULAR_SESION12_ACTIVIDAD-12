@@ -1,31 +1,31 @@
 <h1 class="text-primary text-center">Formulario de Contacto</h1>
-<div class="d-flex justify-content-center" >
-    <h4 *ngIf="show">Gracias por comunicarse con nosotros</h4>
+<div class="d-flex justify-content-center" id="notificacion">
+    <h4 *ngIf="show">{{nombre}} - Gracias por comunicarse con nosotros</h4>
 </div>
 <section>
 <form [formGroup]="formValidation" (submit)="send()">
 
-<input type="text" 
-placeholder="Nombre*" 
+<input validar type="text" 
+placeholder="Nombres*" 
 class="form-control mt-1 mb-5"
-formControlName="name" id="name" validation (sendMessage)="getMessage($event)">
+formControlName="name" id="name" #name [(ngModel)]="nombre">
 
-<input type="email" 
+<input appValidar2 type="email" 
 placeholder="Email*" 
 class="form-control mt-1 mb-5"
 formControlName="email" id="email">
 
-<input type="number" 
+<input appValidar3 type="number" 
 placeholder="Telefono" 
 class="form-control mt-1 mb-5"
 formControlName="number" id="number">
 
-<input type="text" 
+<input appValidar3 type="text" 
 placeholder="Asunto*" 
-class="form-control mt-1 mb-4"
+class="form-control mt-1 mb-5"
 formControlName="text" id="text">
 
-<textarea name="message" 
+<textarea appValidar3 name="message" 
 id="message" cols="20" rows="2"
  placeholder="Mensaje" 
  class="form-control mt-1 mb-5"
